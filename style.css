@@ -6,7 +6,7 @@
 }
 
 /* =========================
-   BASE (DARK MODE PADRÃO)
+   BASE (DARK)
    ========================= */
 :root {
   --bg: #0d1117;
@@ -30,14 +30,17 @@ body.light {
 }
 
 /* =========================
-   BODY
+   BODY (FUNDO COM DEPTH)
    ========================= */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
   min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(88,166,255,0.15), transparent 60%),
+    radial-gradient(1000px 500px at 80% 80%, rgba(9,105,218,0.15), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* =========================
@@ -47,16 +50,16 @@ body {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text);
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
   cursor: pointer;
   font-size: 1.2rem;
-  transition: transform 0.2s ease, background-color 0.3s ease;
   z-index: 1000;
+  transition: transform 0.2s ease;
 }
 
 .theme-toggle:hover {
@@ -69,7 +72,7 @@ body {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 80px 20px;
 }
 
 /* =========================
@@ -77,65 +80,78 @@ body {
    ========================= */
 .hero {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 100px;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
+  font-size: 3.4rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.hero h1 span {
+  color: var(--accent);
 }
 
 .hero p {
-  font-size: 1.2rem;
+  margin-top: 12px;
+  font-size: 1.25rem;
   color: var(--text-muted);
 }
 
 /* =========================
    PROJETOS
    ========================= */
-.projetos h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 1.8rem;
+.projetos {
+  margin-bottom: 120px;
 }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 20px;
+.projetos h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
 }
 
 /* =========================
-   CARD
+   CARDS
    ========================= */
-.card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+.cards {
+  display: grid;
+  place-items: center;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+.card {
+  width: 100%;
+  max-width: 520px;
+  padding: 32px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.02)
+    );
+  backdrop-filter: blur(8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+  transition: box-shadow 0.3s ease;
 }
 
 .card h3 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  margin-bottom: 12px;
 }
 
 .card p {
   color: var(--text-muted);
-  margin-bottom: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .card a {
   color: var(--accent);
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .card a:hover {
@@ -146,7 +162,6 @@ body {
    FOOTER
    ========================= */
 footer {
-  margin-top: 80px;
   text-align: center;
   color: var(--text-muted);
   font-size: 0.9rem;
@@ -157,8 +172,8 @@ footer {
    ========================= */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
+  transform: translateY(40px);
+  transition: all 0.7s ease;
 }
 
 .reveal.active {
@@ -171,10 +186,10 @@ footer {
    ========================= */
 @media (max-width: 600px) {
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 }
