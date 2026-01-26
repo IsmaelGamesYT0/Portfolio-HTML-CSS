@@ -40,7 +40,7 @@ document.querySelectorAll(".card").forEach(card => {
     `;
   });
 
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "none";
-  });
+card.addEventListener("mouseleave", () => {
+  card.style.transform = "";
+});
 });
